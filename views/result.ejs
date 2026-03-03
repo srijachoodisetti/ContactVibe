@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <style>
+    /* Basic CSS styling for the results page */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .success-icon {
+      text-align: center;
+      font-size: 60px;
+      color: #27ae60;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #27ae60;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .subtitle {
+      color: #666;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .submission-details {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .detail-row {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .detail-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .detail-label {
+      font-weight: 600;
+      color: #555;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .detail-value {
+      color: #333;
+      font-size: 16px;
+      word-wrap: break-word;
+    }
+
+    .message-value {
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: #f8f9fa;
+      color: #333;
+      border: 2px solid #e0e0e0;
+    }
+
+    .btn-secondary:hover {
+      background: #e9ecef;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .timestamp {
+      text-align: center;
+      color: #999;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Success icon -->
+    <div class="success-icon">&#10004;</div>
+
+    <!-- Page heading -->
+    <h1><%= title %></h1>
+    <p class="subtitle">Your form has been submitted successfully</p>
+
+    <!-- Display submitted data -->
+    <div class="submission-details">
+      <!-- Name -->
+      <div class="detail-row">
+        <div class="detail-label">Name</div>
+        <div class="detail-value"><%= submission.name %></div>
+      </div>
+
+      <!-- Email -->
+      <div class="detail-row">
+        <div class="detail-label">Email</div>
+        <div class="detail-value"><%= submission.email %></div>
+      </div>
+
+      <!-- Message -->
+      <div class="detail-row">
+        <div class="detail-label">Message</div>
+        <div class="detail-value message-value"><%= submission.message %></div>
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="button-group">
+      <a href="/" class="btn btn-primary">Submit Another Form</a>
+    </div>
+
+    <!-- Timestamp -->
+    <div class="timestamp">
+      Submitted on <%= submission.timestamp %>
+    </div>
+  </div>
+</body>
+</html>
